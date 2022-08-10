@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://i.postimg.cc/pXQs0jJC/Whats-App-Image-2022-07-19-at-12-34-12-PM.jpg">
+    <title>contacto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="inicioNav :: inicioNavega"></div>
+
+<br>
+
+<h1>Contacto</h1>
+
+<br>
+
+<form th:action="@{/contacto/guardarContacto}" method="post" th:object="${contacto}" class="form col-6">
+
+    <input type="hidden" id="idContacto" name="idContacto">
+
+    <div class="mb-3">
+        <label for="correoElectronico" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control"
+               id="correoElectronico" value="" name="correoElectronico" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea class="form-control"
+                  id="mensaje" value="" name="mensaje" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Enviar</button>
+</form>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

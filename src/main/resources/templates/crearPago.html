@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://i.postimg.cc/pXQs0jJC/Whats-App-Image-2022-07-19-at-12-34-12-PM.jpg">
+    <title>Crear Pago</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="nav :: navega"></div>
+
+<br>
+
+<h1>Crear Pago</h1>
+
+<br>
+
+
+<form th:action="@{/crearPago/guardarPago}" method="post" th:object="${pago}" class="form col-6">
+
+    <input type="hidden" id="idPago" name="idPago">
+
+    <div class="mb-3">
+        <label for="fechaPago" class="form-label">Fecha de Pago</label>
+        <input type="date" class="form-control" id="fechaPago" name="fechaPago"   aria-describedby="emailHelp">
+        <div id="txtFechaPago" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+        <label for="rutCliente" class="form-label">Rut del Cliente</label>
+        <input type="text" class="form-control" id="rutCliente" name="rutCliente"  aria-describedby="emailHelp">
+        <div id="txtRutCliente" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+        <label for="monto" class="form-label">Monto</label>
+        <input type="number" class="form-control" id="monto" name="monto"   aria-describedby="emailHelp">
+        <div id="txtMonto" class="form-text"></div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear pago</button>
+</form>
+
+
+<!-- JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

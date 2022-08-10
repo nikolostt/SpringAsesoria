@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://i.postimg.cc/pXQs0jJC/Whats-App-Image-2022-07-19-at-12-34-12-PM.jpg">
+    <title>Listado Pago</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="nav :: navega"></div>
+
+<br>
+
+<h1>Listado Pago</h1>
+
+<br>
+
+<table class="table table-bordered table-dark" id="listadoPagos">
+    <thead>
+    <tr>
+        <th>Id de pago</th>
+        <th>Fecha de pago</th>
+        <th>Rut Cliente</th>
+        <th>Monto</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pago: ${pagos}">
+        <th th:text="${pago.getIdPago()}"></th>
+        <td th:text="${pago.getFechaPago()}"></td>
+        <td th:text="${pago.getRutCliente()}"></td>
+        <td th:text="${pago.getMonto()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<!-- JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

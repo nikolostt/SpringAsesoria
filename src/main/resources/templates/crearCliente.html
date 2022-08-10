@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://i.postimg.cc/pXQs0jJC/Whats-App-Image-2022-07-19-at-12-34-12-PM.jpg">
+    <title>Crear Cliente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="nav :: navega"></div>
+
+<br>
+
+<h1>Crear Cliente</h1>
+
+<br>
+
+<form th:action="@{/crearCliente/guardarCliente}" method="post" th:object="${cliente}" class="form col-6">
+
+    <input type="hidden" id="idCliente" name="idCliente">
+
+    <div class="mb-3">
+        <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+        <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" aria-describedby="emailHelp">
+        <div id="txtnombreUsuario" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" aria-describedby="emailHelp">
+        <div id="txtfechaNacimiento" class="form-text"></div>
+    </div>
+
+    <div class="mb-3">
+        <label for="run" class="form-label">RUN</label>
+        <input type="number" class="form-control" id="run" name="run" aria-describedby="emailHelp">
+        <div id="txtrun" class="form-text-color=white">Ingrese RUN sin puntos, ni guión, ni dígito verificador.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="clave" class="form-label">Contraseña</label>
+        <input type="text" class="form-control" id="clave" name="clave" aria-describedby="emailHelp">
+        <div id="txtclave" class="form-text"></div>
+    </div>
+
+    <input type="hidden" id="perfil" name="perfil" value="Cliente">
+
+    <div class="mb-3">
+        <label for="rut" class="form-label">RUT</label>
+        <input type="number" class="form-control" id="rut" name="rut" aria-describedby="emailHelp">
+        <div id="txtrut" class="form-text-color=white">Ingrese RUN sin puntos, ni guión, ni dígito verificador.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="nombres" name="nombres">
+    </div>
+
+    <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos" name="apellidos">
+    </div>
+
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="number" class="form-control" id="telefono" name="telefono">
+        <div id="txttelefono" class="form-text-color=white">(9) + 8 dígitos.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="afp" class="form-label">AFP</label>
+        <input type="text" class="form-control" id="afp" name="afp">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Sistema de salud</label>
+        <select class="form-select" aria-label="Default select example" id="sistemaSalud" name="sistemaSalud">
+            <option value="">Seleccione sistema de salud</option>
+            <option value="1">Fonasa</option>
+            <option value="2">Isapre</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" name="direccion">
+    </div>
+
+    <div class="mb-3">
+        <label for="comuna" class="form-label">Comuna</label>
+        <input type="text" class="form-control" id="comuna" name="comuna">
+    </div>
+
+    <div class="mb-3">
+        <label for="edad" class="form-label">Edad</label>
+        <input type="text" class="form-control" id="edad" name="edad">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear usuario</button>
+</form>
+
+
+
+<!-- JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

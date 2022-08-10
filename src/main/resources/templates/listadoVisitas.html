@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="https://i.postimg.cc/pXQs0jJC/Whats-App-Image-2022-07-19-at-12-34-12-PM.jpg">
+    <title>Listado Visitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="nav :: navega"></div>
+
+<br>
+
+<h1>Listado Visitas</h1>
+
+<br>
+
+<table class="table table-bordered table-dark" id="visitasTerreno">
+    <thead>
+    <tr>
+        <th>Id de Visitas en Terreno</th>
+        <th>RUT Cliente</th>
+        <th>Día</th>
+        <th>Hora</th>
+        <th>Lugar</th>
+        <th>Comentarios</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="visita: ${visitas}">
+        <th th:text="${visita.getIdVisita()}"></th>
+        <td th:text="${visita.getRutCliente()}"></td>
+        <td th:text="${visita.getDia()}"></td>
+        <td th:text="${visita.getHora()}"></td>
+        <td th:text="${visita.getLugar()}"></td>
+        <td th:text="${visita.getComentarios()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<!-- JavaScript Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

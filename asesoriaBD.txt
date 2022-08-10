@@ -1,0 +1,112 @@
+CREATE SCHEMA `asesoria`;
+
+use asesoria;
+
+CREATE TABLE `asesoria`.`capacitacion` (
+  `id_capacitacion` INT NOT NULL AUTO_INCREMENT,
+  `rut_cliente` INT NOT NULL,
+  `dia_semana` VARCHAR(45) NOT NULL,
+  `hora` VARCHAR(5) NOT NULL,
+  `lugar` VARCHAR(45) NOT NULL,
+  `duracion` VARCHAR(45) NOT NULL,
+  `cantidad_asistentes` INT NOT NULL,
+  PRIMARY KEY (`id_capacitacion`));
+
+CREATE TABLE `asesoria`.`cliente` (	
+  `id_cliente` INT NOT NULL AUTO_INCREMENT,
+  `nombre_usuario` VARCHAR(45) NOT NULL,
+  `fecha_nacimiento` DATE NOT NULL,
+  `run` INT NOT NULL,
+  `clave` VARCHAR(45) NOT NULL,
+  `perfil` VARCHAR(45) NOT NULL,
+  `rut` INT NOT NULL,
+  `nombres` VARCHAR(45) NOT NULL,
+  `apellidos` VARCHAR(45) NOT NULL,
+  `telefono` INT NOT NULL,
+  `afp` VARCHAR(45) NOT NULL,
+  `sistema_salud` INT NOT NULL,
+  `direccion` VARCHAR(45) NOT NULL,
+  `comuna` VARCHAR(45) NOT NULL,
+  `edad` INT NOT NULL,
+  PRIMARY KEY (`id_cliente`));
+
+CREATE TABLE `asesoria`.`profesional` (
+  `id_profesional` INT NOT NULL AUTO_INCREMENT,
+  `nombre_usuario` VARCHAR(45) NOT NULL,
+  `fecha_nacimiento` DATE NOT NULL,
+  `run` INT NOT NULL,
+  `clave` VARCHAR(45) NOT NULL,
+  `perfil` VARCHAR(45) NOT NULL,
+  `titulo` VARCHAR(45) NOT NULL,
+  `fecha_ingreso` DATE NOT NULL,
+  PRIMARY KEY (`id_profesional`));
+
+CREATE TABLE `asesoria`.`administrativo` (
+  `id_administrativo` INT NOT NULL AUTO_INCREMENT,
+  `nombre_usuario` VARCHAR(45) NOT NULL,
+  `fecha_nacimiento` DATE NOT NULL,
+  `run` INT NOT NULL,
+  `clave` VARCHAR(45) NOT NULL,
+  `perfil` VARCHAR(45) NOT NULL,
+  `area` VARCHAR(45) NOT NULL,
+  `experiencia_previa` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_administrativo`));
+
+CREATE TABLE `asesoria`.`pago` (
+  `id_pago` INT NOT NULL AUTO_INCREMENT,
+  `fecha_pago` DATE NOT NULL,
+  `rut_cliente` INT NOT NULL,
+  `monto` INT NOT NULL,
+  PRIMARY KEY (`id_pago`));
+   
+  CREATE TABLE `asesoria`.`visita` (
+  `id_visita` INT NOT NULL AUTO_INCREMENT,
+  `rut_cliente` INT NOT NULL,
+  `dia` DATE NOT NULL,
+  `hora` VARCHAR(45) NOT NULL,
+  `lugar` VARCHAR(45) NOT NULL,
+  `comentarios` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id_visita`));
+
+CREATE TABLE `asesoria`.`contacto` (
+  `id_contacto` INT NOT NULL AUTO_INCREMENT,
+  `correo_electronico` VARCHAR(45) NOT NULL,
+  `mensaje` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id_contacto`));
+ 
+INSERT INTO `asesoria`.`capacitacion` (`rut_cliente`, `dia_semana`, `hora`, `lugar`, `duracion`, `cantidad_asistentes`)
+VALUES ('12524589', 'lunes', '15:30', 'Los Aromos 50', '1 Hora', '30');
+INSERT INTO `asesoria`.`capacitacion` (`rut_cliente`, `dia_semana`, `hora`, `lugar`, `duracion`, `cantidad_asistentes`)
+VALUES ('11548965', 'jueves', '14:00', 'Los Andes 181', '30 Minutos', '20');
+INSERT INTO `asesoria`.`capacitacion` (`rut_cliente`, `dia_semana`, `hora`, `lugar`, `duracion`, `cantidad_asistentes`)
+VALUES ('10452135', 'martes', '11:00', 'Las Heras 45', '2 Horas', '45');
+
+INSERT INTO `asesoria`.`cliente` (`nombre_usuario`, `fecha_nacimiento`, `run`, `clave`, `perfil`, `rut`, `nombres`, `apellidos`, `telefono`, `afp`, `sistema_salud`, `direccion`, `comuna`, `edad`)
+VALUES ('CarlosCorales', '1984-01-19', '12478569', 'carlos90', 'cliente', '12478569', 'Carlos Pedro', 'Corales Tapia', '925689745', 'Modelo', '1', 'Los Almendros 68', 'Villarrica', '38');
+INSERT INTO `asesoria`.`cliente` (`nombre_usuario`, `fecha_nacimiento`, `run`, `clave`, `perfil`, `rut`, `nombres`, `apellidos`, `telefono`, `afp`, `sistema_salud`, `direccion`, `comuna`, `edad`)
+VALUES ('PaulaRamos', '2001-03-06', '17521452', 'pausuper7', 'cliente', '17521452', 'Paula Carmen', 'Ramos Rojas', '914145258', 'Cuprum', '2', 'Barrio Blanco 907', 'Villa Alemana', '21');
+
+INSERT INTO `asesoria`.`profesional` (`nombre_usuario`, `fecha_nacimiento`, `run`, `clave`, `perfil`, `titulo`, `fecha_ingreso`)
+VALUES ('FelipeGonzalez', '1998-05-02', '14858569', 'felobacan56', 'profesional', 'Ingeniero informático', '2006-10-05');
+INSERT INTO `asesoria`.`profesional` (`nombre_usuario`, `fecha_nacimiento`, `run`, `clave`, `perfil`, `titulo`, `fecha_ingreso`)
+VALUES ('NinoskaCofre', '2000-01-19', '17525256', 'ninodisney00', 'profesional', 'Contadora', '2010-08-14');
+
+INSERT INTO `asesoria`.`administrativo` (`nombre_usuario`, `fecha_nacimiento`, `run`, `clave`, `perfil`, `area`, `experiencia_previa`)
+VALUES ('PamelaCortes', '1994-12-02', '13525689', 'pame94', 'administrativo', 'Finanzas', 'Atención de público.');
+INSERT INTO `asesoria`.`administrativo` (`nombre_usuario`, `fecha_nacimiento`, `run`, `clave`, `perfil`, `area`, `experiencia_previa`)
+VALUES ('CamiloRobles', '1990-05-13', '12414256', 'cami1990', 'administrativo', 'Contabilidad', 'Funciones administrativas contables.');
+
+INSERT INTO `asesoria`.`pago` (`fecha_pago`, `rut_cliente`, `monto`) VALUES ('2022-08-01', '12478569', '900000');
+INSERT INTO `asesoria`.`pago` (`fecha_pago`, `rut_cliente`, `monto`) VALUES ('2022-07-31', '17521452', '600000');
+
+INSERT INTO `asesoria`.`visita` (`rut_cliente`, `dia`, `hora`, `lugar`, `comentarios`) VALUES ('14858569', '2022-08-01', '09:00', 'Valparaíso', 'Visita exitosa');
+INSERT INTO `asesoria`.`visita` (`rut_cliente`, `dia`, `hora`, `lugar`, `comentarios`) VALUES ('17525256', '2022-08-03', '14:45', 'Viña del Mar', 'Visita con observaciones');
+
+INSERT INTO `asesoria`.`contacto` (`correo_electronico`, `mensaje`) VALUES ('carlos21@gmail.com', 'hola carlos');
+INSERT INTO `asesoria`.`contacto` (`correo_electronico`, `mensaje`) VALUES ('pamela60@gmail.com', 'Hola pamela');
+
+******************************************************************************************************************
+
+INSERT INTO `asesoria`.`usuario` (`username`, `enable`, `password`) VALUES ('admin', 1, '$2a$10$l9ALL8qNZ3BNOj3tCsZwoOqmEi6KEpVKTAojqQrMAmRChUb91tgny');
+
+
